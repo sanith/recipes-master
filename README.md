@@ -1,14 +1,3 @@
-## Setup
-
-You may use the following one liner for quick installation
-```
-git clone git@github.com:nivincp/rest-docker.git && cd rest-docker && ./setup.sh
-```
-
-You should have composer, docker and docker-compose in your environment path variables for the one liner script to work and the ports for these services(docker-compose.yml) needs to be available.
-
-It's tested on an Ubuntu 16.04 machine but if you're on a different OS and it's not working please proceed with the following steps.
-
 1. Packages are managed via composer. Start by running a `composer install` in *web* directory.
 2. Run `docker-compose up -d` in *root* directory to start the development environment.
 3. Run migrations in *web* directory using ``composer run-migrations``
@@ -37,14 +26,13 @@ composer create-migration MigrationName
 | Name   | Method      | URL                    | Protected |
 | ---    | ---         | ---                    | ---       |
 | List   | `GET`       | `/recipes`             | ✘         |
-| Search | `GET`       | `/recipes?query`       | ✘         |
 | Create | `POST`      | `/recipes`             | ✓         |
 | Get    | `GET`       | `/recipes/{id}`        | ✘         |
 | Update | `PUT/PATCH` | `/recipes/{id}`        | ✓         |
 | Delete | `DELETE`    | `/recipes/{id}`        | ✓         |
 | Rate   | `POST`      | `/recipes/{id}/rating` | ✘         |
-| Signup | `POST`      | `/users`               | ✘         |
-| Login  | `POST`      | `/users/login`         | ✘         |
+
+
 
 Accepted query params for search are vegetarian, difficulty, prepTime, name. For example  
 ``GET /recipes?vegetarian=1&difficulty=1&prepTime=2+hrs&name=llo``
